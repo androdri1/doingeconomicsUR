@@ -1,7 +1,13 @@
+
+
+### Clear memory
+rm(list = ls())
+
 # https://rpubs.com/SmilodonCub/582905
 # Basic data handling
 library(tidyr)
 library(dplyr)
+
 
 #the url for the .csv file
 URL <-'https://raw.githubusercontent.com/SmilodonCub/DATA607/master/eduDATA_df.csv'
@@ -42,6 +48,20 @@ edu_byRegion <- eduDATA_df %>%
   group_by( Region, eduLevel ) %>%
   #find the total of Male + Female incidences
   summarise( Total = sum( Total )) 
+
+
+# Calcular proporción dentro de cada región
+# Calculate proportion within each region
+edu_grouped_prop <- edu_byRegion %>%
+  group_by(Region) %>%
+  mutate(Proporcion = Total / sum(Total)* 100) %>%
+  ungroup()
+
+# Visualizar las proporciones (primeras filas)
+# View proportions
+head(edu_grouped_prop)
+
+
 
 # Merge ========================================================================
 # Toy examples
@@ -95,6 +115,28 @@ inner_join(New_Data_Frame, Data_Frame4, by = join_by(Training == Training))
 left_join(New_Data_Frame, Data_Frame4, by = join_by(Training == Training))
 right_join(New_Data_Frame, Data_Frame4, by = join_by(Training == Training))
 full_join(New_Data_Frame, Data_Frame4, by = join_by(Training == Training))
+
+
+# Handling missing data ========================================================
+
+# Check for missing values in the final dataframe
+missing_summary <- eduDATA_df %>%
+  summarise_all(~sum(is.na(.))) %>%
+  pivot_longer(cols = everything(), names_to = "Variable", values_to = "NA_Count")
+
+
+# Optional: remove rows with NAs
+eduDATA_clean <- eduDATA_df %>%
+  drop_na()
+
+# Alternative option: assign a value of 0 to missing values in the ‘Total’ column.
+eduDATA_imputed <- eduDATA_df %>%
+  mutate(Total = ifelse(is.na(Total), 0, Total))
+
+# Verification after cleaning
+summary(eduDATA_clean)
+
+
 
 
 
