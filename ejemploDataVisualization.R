@@ -47,7 +47,29 @@ ggplot(economics, aes(x = unemploy, y = psavert)) +
   ) +
   theme_minimal()  
 
+# Save and modify the graph
 
+example_graph <- ggplot(economics, aes(x = unemploy, y = psavert)) +
+  geom_point(alpha = 0.6) +                             
+  geom_smooth(method = "lm", se = FALSE, color = "darkblue") + 
+  labs(
+    title = "Relationship between Unemployment and Personal Saving Rate",
+    x = "Number of Unemployed (thousands)",
+    y = "Personal Saving Rate (%)"
+  ) +
+  theme_minimal()  
+
+# Modify axis labels
+
+example_graph <- example_graph + # ggplot allows you to add elents after saving the graph
+  scale_x_continuous(
+    labels = scales::label_number(
+      big.mark = ",", # American separation of thousand
+      decimal.mark = "." # American separation of decimal
+    )
+  )
+
+example_graph
 
 
 
