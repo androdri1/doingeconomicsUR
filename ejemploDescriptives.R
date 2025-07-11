@@ -1,4 +1,4 @@
-
+# Desc: Este archivo realiza estadisticas basicas de la base de datos
 pacman::p_load(
   rio,          # File import
   skimr,        # get overview of data
