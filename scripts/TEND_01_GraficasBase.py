@@ -3,8 +3,8 @@
 # Descripción: Este script genera cuatro tipos de gráficos (barras, líneas, dispersión,
 #              barras apiladas) utilizando datos de una encuesta a tenderos.
 #              Cada gráfico ilustra un concepto clave de visualización de datos.
-# Autor: [Tu Nombre]
-# Fecha: [Fecha]
+# Autor: Paul Rodriguez
+# Fecha: Julio 7
 # =============================================================================
 
 import pandas as pd
