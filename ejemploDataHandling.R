@@ -1,4 +1,4 @@
-
+# Descripcion: Se analizan los datos y se transforman
 
 ### Clear memory
 rm(list = ls())
