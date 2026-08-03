@@ -1,0 +1,8 @@
+id;nombre;ciudad;fecha_encuesta;ingreso_mensual;nota_promedio;trabaja;comentario
+1; Ana María López ;Bogotá ;03/08/2026;1.250.000,50;4,2;Sí;Atención rápida – sin quejas
+2;JOSE MUÑOZ;medellín;2026-08-04;950000.75;3.8;si ;Revisar dirección
+3;Lucía Pérez;CALI;5 agosto 2026;1,100,000.00;4,0;No;Llegó tarde
+4;Andrés Niño;Barranquilla;06-08-26;N/D;3,5;NO;Dato incompleto
+5;María José Gómez; bogotá;2026/08/07;875.500,00;4.5;Sí ;Prefiere contacto por correo
+6;Camilo Rojas;Cartagena;08.08.2026;1 050 000,25;-;sí;Año de ingreso: 2024
+7;Sofía León;Pereira;08/13/2026;725000;4,1;no;
